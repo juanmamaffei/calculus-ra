@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import YouTube from './Youtube';
 import { modelos } from '../mockup';
+import store from '../store';
 
 class Models extends Component {
     constructor(){
@@ -11,7 +12,11 @@ class Models extends Component {
         
     }
     selectModule(m){
-        console.log("Hiciste clic en el módulo " + m)
+
+        store.dispatch({
+            type: "CAMBIAR_MODULO",
+            modulo: m,
+        });
     }
 
     render(){
@@ -25,7 +30,7 @@ class Models extends Component {
                     <h5 className="card-title">{mod.title}</h5>
                     <p className="card-text"><strong>Código QR:</strong>{mod.qr}</p>
                     <YouTube video={mod.destination} autoplay="0" rel="0" modest="1" />
-                    <button onClick={()=>{ this.selectModule(i)}} className="btn btn-primary">Abrir</button>
+                    <button onClick={()=>{ this.selectModule(mod.title)}} className="btn btn-primary">Abrir</button>
                     
                 </div>
                 </div>
