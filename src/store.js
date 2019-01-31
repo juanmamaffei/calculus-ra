@@ -7,6 +7,7 @@ const reducer= (state, action) => {
         return{
             ...state,
             historial: state.historial.concat(action.modulo),
+            moduloActual: action.modulo
         }
     }
 
