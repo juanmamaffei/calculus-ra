@@ -1,4 +1,5 @@
 import React from 'react';
+import store from '../store';
 
 class History extends React.Component{
     constructor(props){
@@ -6,6 +7,13 @@ class History extends React.Component{
         this.state= {
             historial: [],
         };
+
+        store.subscribe(()=>{
+            this.setState({
+                historial: store.getState().historial,
+            })
+        })
+        
     }
     
     render(){

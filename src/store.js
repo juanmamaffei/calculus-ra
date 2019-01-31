@@ -1,12 +1,16 @@
 import {createStore} from 'redux';
 
 const reducer= (state, action) => {
-    if(action === "CAMBIAR_MODULO"){
+    
+    //Si la acción es CAMBIAR_MODULO
+    if(action.type === "CAMBIAR_MODULO"){
         return{
             ...state,
             historial: state.historial.concat(action.modulo),
         }
     }
+
+    // si nunca se entró al if (porque no se ejecutó la acción CAMBIAR_MODULO), se retornará el state como estaba (sin cambios)
     return state;
 }
 
