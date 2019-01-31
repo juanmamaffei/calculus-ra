@@ -10,6 +10,12 @@ const reducer= (state, action) => {
             moduloActual: action.modulo
         }
     }
+    else if(action.type === "BORRAR_HISTORIAL") {
+        return{
+            ...state,
+            historial: [],
+        }
+    }
 
     // si nunca se entró al if (porque no se ejecutó la acción CAMBIAR_MODULO), se retornará el state como estaba (sin cambios)
     return state;
