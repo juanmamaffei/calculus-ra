@@ -6,13 +6,12 @@ class Models extends Component {
     constructor(){
         super();
         // this.modelos = this.state.modelos.bind(this);
-        this.changeTitle = this.changeTitle.bind(this);
+        this.selectModule = this.selectModule.bind(this);
         this.state = { title: '', qr: ''};
         
     }
-    changeTitle(t, qr){
-        this.setState({title: t, qr: qr});
-        console.log(this.state.qr)
+    selectModule(m){
+        console.log("Hiciste clic en el módulo " + m)
     }
 
     render(){
@@ -26,13 +25,13 @@ class Models extends Component {
                     <h5 className="card-title">{mod.title}</h5>
                     <p className="card-text"><strong>Código QR:</strong>{mod.qr}</p>
                     <YouTube video={mod.destination} autoplay="0" rel="0" modest="1" />
-                    <button onClick={()=>{ this.changeTitle(mod.title, mod.qr) }} className="btn btn-primary">Abrir</button>
+                    <button onClick={()=>{ this.selectModule(i)}} className="btn btn-primary">Abrir</button>
                     
                 </div>
                 </div>
             )
             });
-        return (<div className="row mx-auto">{ models }</div>);
+        return (<div className="row mx-auto"><h2 className="col-sm-12">Modelos</h2>{ models }</div>);
     }
 }
 export default Models;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Navigation from './components/Navigation';
-
 import Models from './components/Models';
+import History from './components/History';
 
 class App extends Component {
   
@@ -27,12 +27,12 @@ class App extends Component {
       <div className="App"> 
       
         <Navigation title={ this.state.title } time={ this.state.time } />
-
-
-        <Models />
-
-        
-      
+        <div className="container">
+          <div className= "row mx auto">
+            <History />
+            <Models />
+          </div>
+        </div>
       </div>
 
       
